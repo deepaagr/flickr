@@ -12,30 +12,23 @@
     <Window.Resources>
         <vm:PhotoViewModel x:Key="PhotoViewModel" />
         <converter:TextBlockVisibilityConverter x:Key="TextBlockVisibilityConverter" />
-        <!--<validators:EmptyStringValidationRule x:Key="EmptyStringValidationRule"/>-->
     </Window.Resources>
     <Border BorderBrush="#1266a7" BorderThickness="3" Margin="10">
-    <Grid DataContext="{Binding Source={StaticResource  PhotoViewModel}}"  >
-        <Grid.RowDefinitions>
+        <Grid DataContext="{Binding Source={StaticResource  PhotoViewModel}}"  >
+            <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <!--<Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-        </Grid.ColumnDefinitions>-->
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
             <TextBlock Text="Flicker Image Search " Width="300" Margin="20" 
                        VerticalAlignment="Center" FontWeight="ExtraBold" TextDecorations="Underline" FontStyle="Italic" Foreground="Blue" Grid.Row="0"
                        FontSize="20"/>
             <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <TextBlock Text="Image Search " Width="100" Margin="5 10" VerticalAlignment="Center" FontWeight="Bold" />
+                <TextBlock Text="Image Search " Width="100" Margin="5 10" VerticalAlignment="Center" FontWeight="Bold" />
                 <TextBox Name="SearchTextBox" Width="300" Height="35"  FontWeight="Normal"
                       VerticalAlignment="Center" HorizontalAlignment="Center"
                       Margin="5 10">
-                    <!--Text="{Binding ImageSearchKeyword , Mode=TwoWay}"-->
                     <TextBox.Text>
                         <Binding Path="ImageSearchKeyword" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
@@ -51,7 +44,6 @@
                                     <AdornedElementPlaceholder Name="MyAdorner"
                                ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}"/>
                                 </Border>
-                                <!--<AdornedElementPlaceholder Name="MyAdorner"/>-->
                                 <TextBlock Foreground="Red" Text="!" ToolTip="{Binding ElementName=MyAdorner, 
                         Path=AdornedElement.(Validation.Errors)[0].ErrorContent}"  />
                             </DockPanel>
@@ -68,12 +60,10 @@
                                 <DataTrigger Binding="{Binding ElementName=SearchTextBox, Path=(Validation.HasError)}" Value="false" >
                                     <Setter Property="IsEnabled" Value="True" />
                                 </DataTrigger>
-                                
                             </Style.Triggers>
                         </Style>
                     </Button.Style>
                 </Button>
-
             </StackPanel>
             <TextBlock x:Name="EmptyImageList" 
                    Visibility="{Binding IsPhotoListEmpty, Mode=TwoWay, Converter={StaticResource TextBlockVisibilityConverter}}"
@@ -81,37 +71,30 @@
             <ListView x:Name="ImageList" ItemsSource="{Binding PhotoList}"
                   HorizontalAlignment="Stretch" VerticalAlignment="Top" 
                   Grid.Row="3" >
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <!--<Border Name="bd" BorderBrush="Black" BorderThickness="0.5"
-          Background="White" Margin="5">-->
-
-                    <WrapPanel ItemWidth="150" IsItemsHost="True" MinWidth="100" 
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel ItemWidth="150" IsItemsHost="True" MinWidth="100" 
                                ItemHeight="150"
                         Width="{Binding ActualWidth,RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}">
-                    </WrapPanel>
-              <!--</Border>-->
-                    <!--<WrapPanel IsItemsHost="True"  MaxWidth="500"/>-->
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <!--<StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">-->
-                    <Border BorderThickness="1" BorderBrush="#FF000000" VerticalAlignment="Top"
+                        </WrapPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <!--<StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">-->
+                        <Border BorderThickness="1" BorderBrush="#FF000000" VerticalAlignment="Top"
                       HorizontalAlignment="Left">
-                        <Image  Stretch="Fill" Margin="5" ToolTip="{Binding Title}" ImageFailed="OnDownloadFailed" >
-                            <Image.Source>
-                                <BitmapImage UriSource="{Binding Url}" />
-                            </Image.Source>
-                        </Image>
-                    </Border>
-                    <!--<TextBlock Text="{Binding Title}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />-->
-                    <!--</StackPanel>-->
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        
-        
-    </Grid>
+                            <Image  Stretch="Fill" Margin="5" ToolTip="{Binding Title}" ImageFailed="OnDownloadFailed" >
+                                <Image.Source>
+                                    <BitmapImage UriSource="{Binding Url}" />
+                                </Image.Source>
+                            </Image>
+                        </Border>
+                        <!--<TextBlock Text="{Binding Title}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />-->
+                        <!--</StackPanel>-->
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </Border>
 </Window>
