@@ -1,0 +1,17 @@
+C:\Deepa\preparation\POCs\ImageSearchWPF\ImageSearchWPF\bin\Debug\ImageSearchWPF.exe.config
+C:\Deepa\preparation\POCs\ImageSearchWPF\ImageSearchWPF\bin\Debug\ImageSearchWPF.exe
+C:\Deepa\preparation\POCs\ImageSearchWPF\ImageSearchWPF\bin\Debug\ImageSearchWPF.pdb
+C:\Deepa\preparation\POCs\ImageSearchWPF\ImageSearchWPF\bin\Debug\RestSharp.dll
+C:\Deepa\preparation\POCs\ImageSearchWPF\ImageSearchWPF\bin\Debug\RestSharp.xml
+C:\Deepa\preparation\POCs\ImageSearchWPF\ImageSearchWPF\obj\Debug\App.g.cs
+C:\Deepa\preparation\POCs\ImageSearchWPF\ImageSearchWPF\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Deepa\preparation\POCs\ImageSearchWPF\ImageSearchWPF\obj\Debug\ImageSearchWPF_MarkupCompile.cache
+C:\Deepa\preparation\POCs\ImageSearchWPF\ImageSearchWPF\obj\Debug\ImageSearchWPF_MarkupCompile.lref
+C:\Deepa\preparation\POCs\ImageSearchWPF\ImageSearchWPF\obj\Debug\ImageSearchWPF.g.resources
+C:\Deepa\preparation\POCs\ImageSearchWPF\ImageSearchWPF\obj\Debug\ImageSearchWPF.Properties.Resources.resources
+C:\Deepa\preparation\POCs\ImageSearchWPF\ImageSearchWPF\obj\Debug\ImageSearchWPF.csproj.GenerateResource.Cache
+C:\Deepa\preparation\POCs\ImageSearchWPF\ImageSearchWPF\obj\Debug\ImageSearchWPF.exe
+C:\Deepa\preparation\POCs\ImageSearchWPF\ImageSearchWPF\obj\Debug\ImageSearchWPF.pdb
+C:\Deepa\preparation\POCs\ImageSearchWPF\ImageSearchWPF\obj\Debug\ImageSearchWPF.csprojResolveAssemblyReference.cache
+C:\Deepa\preparation\POCs\ImageSearchWPF\ImageSearchWPF\obj\Debug\View\MainWindow.g.cs
+C:\Deepa\preparation\POCs\ImageSearchWPF\ImageSearchWPF\obj\Debug\View\MainWindow.baml
