@@ -17,7 +17,7 @@ namespace ImageSearchWPF.API
                 var request = new RestRequest();
                 request.Method = Method.GET;
                 request.AddParameter(ConstantsUtility.RequestParameterTagsString, searchKeyword);
-                
+
                 // execute the request
                 IRestResponse response = client.Execute(request);
                 if (response.IsSuccessful)
@@ -44,6 +44,6 @@ namespace ImageSearchWPF.API
             }
         }
 
-        
+
     }
 }

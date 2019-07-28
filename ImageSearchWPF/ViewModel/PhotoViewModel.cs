@@ -26,12 +26,12 @@ namespace ImageSearchWPF.ViewModel
             {
                 _imageSearchKeyword = value;
                 OnPropertyChanged("ImageSearchKeyword");
-               // ((RelayCommand)SearchCommand).RaiseCanExecuteChanged();
-                
+                // ((RelayCommand)SearchCommand).RaiseCanExecuteChanged();
+
 
             }
         }
-        
+
         ObservableCollection<Photo> _photoList;
         public ObservableCollection<Photo> PhotoList
         {
@@ -80,13 +80,13 @@ namespace ImageSearchWPF.ViewModel
             }
         }
 
-       
+
         private ICommand _SubmitCommand;
         public ICommand SubmitCommand
         {
             get
             {
-                if(_SubmitCommand==null)
+                if (_SubmitCommand == null)
                 {
                     _SubmitCommand = new RelayCommand(SubmitExecute, CanSubmitExecute);
                 }
@@ -94,7 +94,7 @@ namespace ImageSearchWPF.ViewModel
             }
         }
 
-        
+
         public void SubmitExecute(object obj)
         {
             //Check if search string is null or empty
@@ -105,7 +105,7 @@ namespace ImageSearchWPF.ViewModel
             }
 
             //Fetch data from api call
-            var result=(FlickerFeed)_feedApi.ImageSearch(ImageSearchKeyword);
+            var result = (FlickerFeed)_feedApi.ImageSearch(ImageSearchKeyword);
             PhotoList.Clear();
             if (result != null && result.IsSuccessful)
             {
@@ -130,20 +130,26 @@ namespace ImageSearchWPF.ViewModel
             {
                 IsPhotoListEmpty = true;
                 //We can handle error message based on the business logic scenarios
-                EmptyPhotoListMessage = result.ErrorMessage;
+                if (result != null)
+                    EmptyPhotoListMessage = result.ErrorMessage;
+                else
+                    EmptyPhotoListMessage = ConstantsUtility.ErrorMessageString;
             }
         }
 
         private bool CanSubmitExecute(object arg)
         {
-              return true;
+            return true;
         }
 
         private void CheckAndUpdateIsPhotoListEmpty()
         {
 
             if (_photoList.Count > 0)
+            {
                 IsPhotoListEmpty = false;
+                EmptyPhotoListMessage = String.Empty;
+            }
             else
             {
                 IsPhotoListEmpty = true;
@@ -161,7 +167,7 @@ namespace ImageSearchWPF.ViewModel
         }
 
         #region Constructors
-        public PhotoViewModel():this(new FlickerFeedApiClient())
+        public PhotoViewModel() : this(new FlickerFeedApiClient())
         {
 
         }
