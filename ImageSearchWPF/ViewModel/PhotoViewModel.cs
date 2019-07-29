@@ -97,16 +97,18 @@ namespace ImageSearchWPF.ViewModel
 
         public void SubmitExecute(object obj)
         {
+
+            PhotoList.Clear();
             //Check if search string is null or empty
             if (String.IsNullOrWhiteSpace(ImageSearchKeyword))
             {
+                IsPhotoListEmpty = true;
                 EmptyPhotoListMessage = ConstantsUtility.EmptySearchStringErrorMessage;
                 return;
             }
 
             //Fetch data from api call
             var result = (FlickerFeed)_feedApi.ImageSearch(ImageSearchKeyword);
-            PhotoList.Clear();
             if (result != null && result.IsSuccessful)
             {
                 foreach (var i in result.Entry)
